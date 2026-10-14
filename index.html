@@ -28,7 +28,6 @@ mark{background:none;color:var(--m)}
 .light mark,.mint mark{color:inherit;background:linear-gradient(transparent 62%,var(--m) 62%)}
 .mint mark{background:linear-gradient(transparent 62%,#000 62%);color:var(--m)}
 #bar{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--m);transform:scaleX(0);transform-origin:left;z-index:60}
-
 /* header + menu */
 header{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:#000;border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
@@ -48,7 +47,6 @@ body.open #menu{transform:none}body.open #veil{opacity:1;pointer-events:auto}
 #menu a::after{content:"→";transition:transform .2s}
 #menu a:hover{padding-left:10px}#menu a:hover::after{transform:translateX(5px)}
 #menu p{margin-top:auto;font-size:.85rem;opacity:.7}
-
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;font-weight:750;text-decoration:none;background:var(--m);color:#000;border:2px solid var(--m);transition:transform .15s,box-shadow .2s,background .2s,color .2s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 0 -4px rgba(63,240,168,.35)}
@@ -60,14 +58,12 @@ body.open #menu{transform:none}body.open #veil{opacity:1;pointer-events:auto}
 .light .btn.g{background:transparent;color:#000}
 .light .btn.g:hover{background:#000;color:var(--m);border-color:#000}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
-
 section{padding:clamp(64px,9vw,120px) 0}
 .light{background:#fff;color:#000}.light p{color:#2b2b2b}
 .mint{background:var(--m);color:#000}.mint p{color:#0a2a1d}
 .tag{display:inline-block;font-weight:750;font-size:.9rem;margin-bottom:12px;padding:4px 12px;border:1.5px solid currentColor;border-radius:99px}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
-
 /* hero */
 .hero{min-height:100svh;display:flex;align-items:center;padding:110px 0 70px;position:relative}
 .hero p{font-size:1.2rem;margin:26px 0 34px;color:#cfcfcf}
@@ -75,13 +71,11 @@ section{padding:clamp(64px,9vw,120px) 0}
 @keyframes sl{from{opacity:0;transform:translateX(-24px)}}
 .hero::after{content:"";position:absolute;right:max(20px,6vw);bottom:70px;width:clamp(90px,16vw,200px);aspect-ratio:1;border:3px solid var(--m);border-radius:50%;animation:pulse 3.4s ease-out infinite}
 @keyframes pulse{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.5);opacity:0}}
-
 /* marquee */
 .mq{background:var(--m);color:#000;overflow:hidden;white-space:nowrap;padding:16px 0;font-weight:800;font-size:1.15rem;border-block:2px solid #000}
 .mq div{display:inline-block;animation:mq 26s linear infinite}
 .mq span{margin:0 22px}
 @keyframes mq{to{transform:translateX(-50%)}}
-
 /* projects */
 .proj{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,6vw,80px);align-items:center;margin-top:44px}
 .proj ul{list-style:none;padding:0;margin:20px 0 28px;display:grid;gap:10px}
@@ -108,7 +102,6 @@ section{padding:clamp(64px,9vw,120px) 0}
 .bar i{width:36px;height:36px;border-radius:50%;background:var(--m)}
 .soon{margin-top:70px;padding:30px;border:2px dashed #000;border-radius:24px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
 .soon p{margin:0}
-
 /* about */
 .cols{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,80px);align-items:start}
 .cols>div:first-child{position:sticky;top:96px}
@@ -117,7 +110,6 @@ section{padding:clamp(64px,9vw,120px) 0}
 .pr>div:last-child{border:0;margin:0;padding:0}
 .pr h3{margin-bottom:8px;display:flex;gap:12px;align-items:center}
 .pr h3::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--m);flex:none}
-
 /* country */
 .big{font-size:clamp(3.2rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;margin:4px 0 16px}
 .map{width:100%;max-width:440px;height:auto;margin-inline:auto;display:block}
@@ -127,7 +119,6 @@ section{padding:clamp(64px,9vw,120px) 0}
 .map .n{fill:var(--m);stroke:#000;stroke-width:3}
 .map .c{fill:#000;transform-origin:220px 170px;animation:bt 2s ease-in-out infinite}
 @keyframes bt{50%{transform:scale(1.18)}}
-
 /* faq */
 .faq{max-width:780px}
 .faq h3{margin:44px 0 4px;font-size:.95rem;text-transform:uppercase;letter-spacing:.08em}
@@ -139,12 +130,10 @@ summary::after{content:"+";width:32px;height:32px;flex:none;border-radius:50%;ba
 details[open] summary::after{transform:rotate(135deg);background:#000;color:var(--m)}
 details p{margin-top:12px;animation:op .35s}
 @keyframes op{from{opacity:0;transform:translateY(-6px)}}
-
 footer{background:#000;padding:44px 0 60px;color:var(--mut);font-size:.92rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 #up{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:50px;height:50px;border-radius:50%;border:2px solid #000;background:var(--m);color:#000;font-size:1.3rem;font-weight:800;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,transform .15s;z-index:30}
 #up.on{opacity:1;pointer-events:auto}#up:active{transform:scale(.92)}
-
 @media(max-width:860px){.proj,.cols{grid-template-columns:1fr}.cols>div:first-child{position:static}.hero{min-height:auto;padding-top:120px}.brand small{display:none}.hero::after{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.phone,.map .l,.map .c,.mq div,.hero::after,.hero h1 mark{animation:none}.m{animation:none;opacity:1;transform:none}}
 </style>
@@ -166,7 +155,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <a href="#top">Головна</a>
   <p>© MaksNortix company</p>
 </nav>
-
 <main id="top">
 <div class="hero">
   <div class="wrap">
@@ -175,9 +163,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="cta rv"><a class="btn" href="#projects">Проєкти компанії</a><a class="btn g" href="#about">Про компанію</a></div>
   </div>
 </div>
-
 <div class="mq" aria-hidden="true"><div><span>Tor</span>●<span>Mesh</span>●<span>Без номера</span>●<span>QR-контакти</span>●<span>Відкритий код</span>●<span>Android</span>●<span>Tor</span>●<span>Mesh</span>●<span>Без номера</span>●<span>QR-контакти</span>●<span>Відкритий код</span>●<span>Android</span>●</div></div>
-
 <section id="projects" class="light">
   <div class="wrap">
     <h2 class="rv">Проєкти <mark>компанії</mark></h2>
@@ -195,7 +181,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         </ul>
         <div class="cta">
           <a class="btn" href="https://fdroid.link/#https://maksnortix.pp.ua/repo?fingerprint=B1EC3F7119BA104D9A303318591279EAD1E817FCE35F92BB5E597AABA13E0A74">Додати в F-Droid</a>
-          <a class="btn g" href="repo/com.mnm.app_119.apk" download>Завантажити APK</a>
+          <a class="btn g" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v1.0/NortixTalk.apk" download>Завантажити APK</a>
           <a class="btn g" href="https://github.com/maaksim1122-cloud/nortix-talk">Код</a>
         </div>
       </div>
@@ -215,7 +201,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="soon rv"><div><h3>Наступний проєкт</h3><p>Ми готуємо новий продукт. Подробиці з'являться тут.</p></div></div>
   </div>
 </section>
-
 <section id="about" class="about">
   <div class="wrap cols">
     <div class="rv"><h2>Відомості про <mark>компанію</mark></h2><p>MaksNortix company — незалежна технологічна компанія. Ми робимо програми, якими користуємось самі, і не збираємо даних більше, ніж потрібно для роботи.</p></div>
@@ -226,7 +211,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </div>
 </section>
-
 <section id="country" class="mint">
   <div class="wrap cols">
     <div class="rv"><span class="tag">Країна заснування</span><div class="big">Україна</div><p>Компанію засновано в Україні. Інтерфейс Nortix Talk українською та ще дев'ятьма мовами, а проєкти доступні користувачам у будь-якій країні.</p></div>
@@ -235,7 +219,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </div>
 </section>
-
 <section id="faq" class="light">
   <div class="wrap faq">
     <h2 class="rv">Часті <mark>питання</mark></h2>
@@ -247,33 +230,4 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <details><summary>Чи видає дзвінок мою IP-адресу?</summary><p>Для з'єднання використовується STUN/TURN-сервер, тож він бачить вашу адресу. Співрозмовник теж може її побачити, якщо не ввімкнено «Лише через ретранслятор».</p></details>
     <details><summary>Що означає «Переглянути один раз»?</summary><p>Фото чи відео, які зникають після першого перегляду одержувачем.</p></details>
     <details><summary>Як бачити, коли співрозмовник був у мережі?</summary><p>Якщо ви показуєте свій час, то бачите точний час і ви. Якщо ховаєте, усі бачать «нещодавно», і ви теж бачите так само про всіх.</p></details>
-    <details><summary>Чи можна користуватись одним акаунтом на двох телефонах?</summary><p>Ні, акаунт активний лише на одному пристрої. Щоб змінити телефон, перенесіть акаунт зашифрованим файлом.</p></details>
-    <details><summary>Для яких пристроїв доступний застосунок?</summary><p>Поки що тільки для Android. Встановити можна через F-Droid або завантаживши APK.</p></details>
-  </div>
-</section>
-</main>
-
-<footer><div class="wrap"><span>© MaksNortix company</span><span>Україна</span></div></footer>
-<button id="up" type="button" aria-label="Нагору">↑</button>
-
-<script>
-(function(){
-  var d=document,b=d.body,h=d.documentElement;
-  var burger=d.getElementById('burger'),menu=d.getElementById('menu'),veil=d.getElementById('veil');
-  function set(o){b.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Закрити меню':'Відкрити меню');if(o)menu.querySelector('a').focus();else burger.focus({preventScroll:true});}
-  burger.addEventListener('click',function(){set(!b.classList.contains('open'))});
-  veil.addEventListener('click',function(){set(false)});
-  menu.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
-  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&b.classList.contains('open'))set(false)});
-  var bar=d.getElementById('bar'),up=d.getElementById('up'),t=false;
-  function sc(){var y=h.scrollTop||b.scrollTop,m=h.scrollHeight-h.clientHeight;bar.style.transform='scaleX('+(m>0?y/m:0)+')';up.classList.toggle('on',y>700);t=false}
-  addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(sc)}},{passive:true});sc();
-  up.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'})});
-  var els=[].slice.call(d.querySelectorAll('.rv'));
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(e,i){e.style.transitionDelay=(i%3)*80+'ms';io.observe(e)});
-})();
-</script>
-</body>
-</html>
+    <details><summary>Чи можна користуватись одним акаунтом на двох телефонах?</summary><p>Ні, акаунт активний лише на одному пристрої. 
