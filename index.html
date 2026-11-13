@@ -18,7 +18,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","name":"MaksNortix company","url":"https://maksnortix.online/","email":"maksnortix@proton.me"},
-{"@type":"SoftwareApplication","name":"Nortix Talk","applicationCategory":"CommunicationApplication","operatingSystem":"Android","description":"Месенджер без номера телефону, з Tor і Mesh-зв'язком через Bluetooth та Wi-Fi Direct.","url":"https://maksnortix.online/","license":"https://www.gnu.org/licenses/gpl-3.0.html","codeRepository":"https://github.com/maaksim1122-cloud/nortix-talk","offers":{"@type":"Offer","price":"0","priceCurrency":"UAH"}}
+{"@type":"SoftwareApplication","name":"Nortix Talk","applicationCategory":"CommunicationApplication","operatingSystem":"Android","description":"Месенджер без номера телефону, з Tor і Mesh-зв'язком через Bluetooth та Wi-Fi Direct.","url":"https://maksnortix.online/","license":"https://www.gnu.org/licenses/gpl-3.0.html","codeRepository":"https://github.com/maaksim1122-cloud/nortix-talk","offers":{"@type":"Offer","price":"0","priceCurrency":"UAH"}},
+{"@type":"SoftwareApplication","name":"Nortix Talk+","applicationCategory":"CommunicationApplication","operatingSystem":"Android, Windows 7, Windows 10, Windows 11, Linux (Kali, Debian, Ubuntu, Arch)","softwareVersion":"3.0.0","description":"Зашифрований месенджер для Android, Windows і Linux з наскрізним шифруванням Double Ratchet та підключенням ПК через QR-код.","url":"https://maksnortix.online/#talk-plus","offers":{"@type":"Offer","price":"0","priceCurrency":"UAH"}}
 ]}
 </script>
 <meta name="theme-color" content="#000000">
@@ -181,6 +182,16 @@ section{padding:clamp(64px,9vw,120px) 0}
 .bar i{width:36px;height:36px;border-radius:50%;background:var(--m)}
 .soon{margin-top:70px;padding:30px;border:2px dashed #000;border-radius:24px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
 .soon p{margin:0}
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:26px}
+.dl-card{border:2px solid #000;border-radius:22px;padding:22px;background:#fff;box-shadow:6px 6px 0 #000;display:flex;flex-direction:column;gap:12px}
+.dl-card h4{font-size:1.18rem;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.dl-card h4 span{font-size:.78rem;font-weight:750;background:var(--m);padding:3px 10px;border-radius:99px;border:1.5px solid #000}
+.dl-card p{font-size:.92rem;margin:0;color:#333}
+.dl-item{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1.5px dashed rgba(0,0,0,.2)}
+.dl-item:first-of-type{border-top:0;padding-top:0}
+.dl-sub{font-size:.8rem;color:#555;text-decoration:underline}
+.gpg-box{margin-top:20px;padding:16px 20px;border:2px dashed #000;border-radius:18px;font-size:.88rem;display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between}
+.gpg-box code{font-family:ui-monospace,monospace;font-weight:700;background:#f0f0f0;padding:2px 7px;border-radius:6px}
 /* about */
 .cols{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,80px);align-items:start}
 .cols>div:first-child{position:sticky;top:96px}
@@ -245,7 +256,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   </div>
 </div>
 
-<div class="mq" aria-hidden="true"><div><span>Tor</span>●<span>Mesh</span>●<span>Без номера</span>●<span>QR-контакти</span>●<span>Відкритий код</span>●<span>Android</span>●<span>Tor</span>●<span>Mesh</span>●<span>Без номера</span>●<span>QR-контакти</span>●<span>Відкритий код</span>●<span>Android</span>●</div></div>
+<div class="mq" aria-hidden="true"><div><span>Tor</span>●<span>Mesh</span>●<span>Без номера</span>●<span>QR-контакти</span>●<span>Відкритий код</span>●<span>Android</span>●<span>Windows</span>●<span>Linux</span>●<span>Tor</span>●<span>Mesh</span>●<span>Без номера</span>●<span>QR-контакти</span>●<span>Відкритий код</span>●<span>Android</span>●<span>Windows</span>●<span>Linux</span>●</div></div>
 
 <section id="projects" class="light">
   <div class="wrap">
@@ -281,21 +292,63 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         </div></div>
       </div>
     </div>
-    <div class="proj" id="talk-plus">
+    <div class="proj" id="talk-plus" style="grid-template-columns:1fr">
       <div class="rv">
-        <span class="tag">Месенджер для Android</span>
+        <span class="tag">Android · Windows 7 / 10 / 11 · Linux (Kali / Debian / Arch)</span>
         <h3 style="font-size:2.4rem;margin-bottom:14px">Nortix Talk+</h3>
-        <p>Месенджер із власним сервером в Україні. Без номера телефону й SMS: акаунт створюється через електронну пошту.</p>
+        <p>Месенджер із власним сервером в Україні для телефона й комп'ютера. Без номера телефону й SMS: акаунт створюється через електронну пошту або миттєво підключається з телефона через QR-код.</p>
         <ul>
-          <li>Наскрізне шифрування повідомлень на пристроях (Double Ratchet)</li>
-          <li>Зашифрована резервна копія на вашому Google Диску, яку не можемо прочитати ні ми, ні Google</li>
-          <li>Без реклами, аналітики та відстеження</li>
-          <li>Ви самі вирішуєте, чи можуть вас знайти за адресою пошти</li>
+          <li>Наскрізне шифрування повідомлень, файлів і дзвінків на пристроях (Double Ratchet, P-256 ECDH, AES-256-GCM)</li>
+          <li>Повноцінний десктопний клієнт для Windows 7 / 8 / 10 / 11 та Linux (Kali, Debian, Ubuntu, Mint, Arch, Manjaro) з миттєвою синхронізацією</li>
+          <li>Зашифрована резервна копія, яку не можемо прочитати ні ми, ні сторонні сервіси</li>
+          <li>Без реклами, аналітики та відстеження — усі збірки підписані офіційним GPG-ключем</li>
         </ul>
-        <div class="cta">
-          <a class="btn" href="https://fdroid.link/#https://maksnortix.online/repo?fingerprint=B1EC3F7119BA104D9A303318591279EAD1E817FCE35F92BB5E597AABA13E0A74">Додати в F-Droid</a>
-          <a class="btn g" href="https://maksnortix.online/repo/NortixTalkPlus-2.0.apk" download>Завантажити APK</a>
-          <a class="btn g" href="/privacy.html">Політика конфіденційності</a>
+
+        <div class="dl-grid">
+          <div class="dl-card">
+            <h4>Android <span>v2.0</span></h4>
+            <p>Встановлення через F-Droid (з автоматичними оновленнями) або прямий APK-файл.</p>
+            <div class="dl-item">
+              <a class="btn" href="https://fdroid.link/#https://maksnortix.online/repo?fingerprint=B1EC3F7119BA104D9A303318591279EAD1E817FCE35F92BB5E597AABA13E0A74">Додати в F-Droid</a>
+              <a class="btn g" href="https://maksnortix.online/repo/NortixTalkPlus-2.0.apk" download>Завантажити APK</a>
+            </div>
+          </div>
+
+          <div class="dl-card">
+            <h4>Windows <span>v3.0.0</span></h4>
+            <p>Інсталятор (.exe) без потреби в правах адміністратора. Окрема збірка для Windows 7 / 8 (32 та 64 біт).</p>
+            <div class="dl-item">
+              <a class="btn" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/NortixTalkPlus-3.0.0-Windows-10-11-x64.exe" download>Windows 10 / 11 (.exe)</a>
+              <a class="dl-sub" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/NortixTalkPlus-3.0.0-Windows-10-11-x64.exe.asc" download>GPG .asc</a>
+            </div>
+            <div class="dl-item">
+              <a class="btn g" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/NortixTalkPlus-3.0.0-Windows-7-x86-x64.exe" download>Windows 7 / 8 (32+64 bit)</a>
+              <a class="dl-sub" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/NortixTalkPlus-3.0.0-Windows-7-x86-x64.exe.asc" download>GPG .asc</a>
+            </div>
+          </div>
+
+          <div class="dl-card">
+            <h4>Linux <span>v3.0.0</span></h4>
+            <p>Рідні пакети для Kali Linux, Debian, Ubuntu, Linux Mint (.deb) та Arch Linux, Manjaro (.pkg.tar.zst).</p>
+            <div class="dl-item">
+              <a class="btn" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/nortix-talk-plus_3.0.0_amd64.deb" download>Kali / Debian / Ubuntu (.deb)</a>
+              <a class="dl-sub" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/nortix-talk-plus_3.0.0_amd64.deb.asc" download>GPG .asc</a>
+            </div>
+            <div class="dl-item">
+              <a class="btn g" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/nortix-talk-plus-3.0.0-1-x86_64.pkg.tar.zst" download>Arch / Manjaro (.pkg.tar.zst)</a>
+              <a class="dl-sub" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/nortix-talk-plus-3.0.0-1-x86_64.pkg.tar.zst.asc" download>GPG .asc</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="gpg-box">
+          <div>🔐 Відбиток GPG-ключа: <code>26D4 6EAF 7FB2 E5CC 36E1 5663 D9BE 8802 DF9D EF1C</code></div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap">
+            <a class="dl-sub" href="/nortix-signing-key.asc" download>Публічний ключ (.asc)</a>
+            <a class="dl-sub" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/SHA256SUMS.txt" download>SHA256SUMS.txt</a>
+            <a class="dl-sub" href="https://github.com/maaksim1122-cloud/maksnortix/releases/download/v3.0.0/SHA256SUMS.txt.asc" download>SHA256SUMS.txt.asc</a>
+            <a class="dl-sub" href="/privacy.html">Політика конфіденційності</a>
+          </div>
         </div>
       </div>
     </div>
@@ -333,8 +386,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <details><summary>Чи видає дзвінок мою IP-адресу?</summary><p>Для з'єднання використовується STUN/TURN-сервер, тож він бачить вашу адресу. Співрозмовник теж може її побачити, якщо не ввімкнено «Лише через ретранслятор».</p></details>
     <details><summary>Що означає «Переглянути один раз»?</summary><p>Фото чи відео, які зникають після першого перегляду одержувачем.</p></details>
     <details><summary>Як бачити, коли співрозмовник був у мережі?</summary><p>Якщо ви показуєте свій час, то бачите точний час і ви. Якщо ховаєте, усі бачать «нещодавно», і ви теж бачите так само про всіх.</p></details>
-    <details><summary>Чи можна користуватись одним акаунтом на двох телефонах?</summary><p>Ні, акаунт активний лише на одному пристрої. Щоб змінити телефон, перенесіть акаунт зашифрованим файлом.</p></details>
-    <details><summary>Для яких пристроїв доступний застосунок?</summary><p>Поки що тільки для Android. APK можна завантажити з GitHub Releases, встановити можна й через F-Droid.</p></details>
+    <details><summary>Чи можна користуватись одним акаунтом на телефоні та ПК?</summary><p>У Nortix Talk+ — так: ви можете підключити комп'ютер (Windows або Linux) через QR-код із телефона, і повідомлення синхронізуватимуться з наскрізним шифруванням. У класичному Nortix Talk акаунт активний лише на одному пристрої.</p></details>
+    <details><summary>Для яких систем доступні застосунки?</summary><p>Nortix Talk+ доступний для Android (APK та F-Droid), Windows 10 / 11 (64-bit), Windows 7 / 8 / 8.1 (32 та 64-bit), Kali / Debian / Ubuntu / Linux Mint (.deb) та Arch Linux / Manjaro (.pkg.tar.zst). Класичний Nortix Talk — для Android.</p></details>
   </div>
 </section>
 </main>
