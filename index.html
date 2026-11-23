@@ -163,25 +163,30 @@ section{padding:clamp(64px,9vw,120px) 0}
 .proj li::before{content:"";position:absolute;left:0;top:.55em;width:16px;height:16px;border-radius:50%;background:var(--m);border:2px solid #000}
 .phone{width:min(300px,100%);margin-inline:auto;border-radius:40px;background:#000;padding:10px;box-shadow:12px 12px 0 var(--m);animation:fl 6s ease-in-out infinite}
 @keyframes fl{50%{transform:translateY(-10px)}}
-.scr{border-radius:30px;background:#0a0b0b;height:488px;display:flex;flex-direction:column;overflow:hidden;color:#fff}
-.top{display:flex;gap:9px;align-items:center;padding:12px 13px;background:#131514;border-bottom:1px solid var(--line)}
+.scr{position:relative;border-radius:30px;background:#0a0b0b;height:488px;display:flex;flex-direction:column;overflow:hidden;color:#fff}
+.top{display:flex;gap:9px;align-items:center;padding:12px 10px 12px 13px;background:#131514;border-bottom:1px solid var(--line)}
 .bk{color:#bdbdbd;flex:none}
 .av{width:34px;height:34px;border-radius:50%;background:var(--m);display:grid;place-items:center;font-weight:800;font-size:.95rem;color:#000;flex:none}
 .top b{display:block;font-size:.92rem;line-height:1.15}.top small{color:var(--m);font-size:.72rem;display:block}
-.acts{margin-left:auto;display:flex;gap:11px;align-items:center;color:#a8a8a8}
+.acts{margin-left:auto;display:flex;gap:6px;align-items:center;color:#a8a8a8}
+.dots-btn{width:30px;height:30px;border-radius:50%;border:0;background:transparent;color:#d6d6d6;display:grid;place-items:center;cursor:pointer;padding:0;transition:background .15s,color .15s}
+.dots-btn:hover,.scr.mopen .dots-btn{background:rgba(63,240,168,.16);color:var(--m)}
 .ch{flex:1;padding:10px 11px;display:flex;flex-direction:column;gap:7px;justify-content:flex-end}
 .day{align-self:center;font-size:.66rem;padding:2px 9px;border-radius:99px;background:#171918;color:#8e9491;margin-bottom:2px}
 .m{max-width:83%;padding:8px 11px 6px;border-radius:16px;font-size:.83rem;line-height:1.35;opacity:0;transform:translateY(10px) scale(.96);animation:pop 10s infinite}
 .m.i{background:#1f2221;color:#f3f3f3;align-self:flex-start;border-bottom-left-radius:5px}
 .m.o{background:var(--m);color:#041b10;align-self:flex-end;border-bottom-right-radius:5px;font-weight:500}
-.m:nth-of-type(1){animation-delay:.1s}.m:nth-of-type(2){animation-delay:1.1s}.m:nth-of-type(3){animation-delay:2.2s}.m:nth-of-type(4){animation-delay:3.4s}
+.m:nth-of-type(1){animation-delay:.1s}.m:nth-of-type(2){animation-delay:1s}.m:nth-of-type(3){animation-delay:2s}.m:nth-of-type(4){animation-delay:3.1s}.m:nth-of-type(5){animation-delay:4.2s}
 @keyframes pop{0%,2%{opacity:0;transform:translateY(10px) scale(.96)}7%,90%{opacity:1;transform:none}97%,100%{opacity:0;transform:translateY(-3px)}}
 .tm{display:block;text-align:right;font-size:.62rem;opacity:.62;margin-top:3px;line-height:1}
 .q{border-left:2.5px solid #041b10;background:rgba(0,0,0,.1);padding:3px 7px;border-radius:5px;margin-bottom:5px;font-size:.72rem;line-height:1.25}
 .q b{display:block;font-size:.68rem}
-.med{position:relative;border-radius:10px;overflow:hidden;margin-bottom:5px;border:1px solid rgba(255,255,255,.08)}
-.med svg{display:block;width:100%;max-width:192px;height:auto}
-.med span{position:absolute;left:6px;top:6px;background:rgba(0,0,0,.62);color:#fff;font-size:.62rem;font-weight:700;padding:2px 6px;border-radius:99px}
+.cmenu-bg{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .18s;z-index:4}
+.cmenu{position:absolute;top:54px;left:16px;right:10px;background:#1d1f1f;border:1px solid #303432;border-radius:18px;padding:7px 0;box-shadow:0 14px 32px rgba(0,0,0,.7);z-index:5;opacity:0;transform:translateY(-6px) scale(.97);pointer-events:none;transition:opacity .18s,transform .18s}
+.scr.mopen .cmenu-bg{opacity:1;pointer-events:auto}
+.scr.mopen .cmenu{opacity:1;transform:none;pointer-events:auto}
+.cmenu button{width:100%;background:none;border:0;color:#f1f1f1;text-align:left;padding:7px 14px;font:500 .78rem/1.25 var(--sans);display:flex;align-items:center;gap:9px;cursor:pointer}
+.cmenu button:hover{background:rgba(63,240,168,.12)}
 .bar{display:flex;gap:7px;align-items:center;padding:9px 11px 12px;background:#131514;border-top:1px solid var(--line)}
 .bar .plus{width:32px;height:32px;border-radius:50%;background:#222625;color:#d6d6d6;display:grid;place-items:center;font-size:1.15rem;font-weight:600;flex:none}
 .bar .inp{flex:1;height:34px;border-radius:17px;background:#222625;color:var(--mut);font-size:.8rem;display:flex;align-items:center;padding:0 12px}
@@ -285,26 +290,39 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <a class="btn g" href="https://github.com/maaksim1122-cloud/nortix-talk">Код</a>
         </div>
       </div>
-      <div class="rv" role="img" aria-label="Приклад чату в Nortix Talk">
-        <div class="phone"><div class="scr">
+      <div class="rv">
+        <div class="phone" aria-label="Приклад чату в Nortix Talk"><div class="scr" id="demoScr">
           <div class="top">
             <svg class="bk" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             <div class="av">A</div>
             <div><b>Anon</b><small>в мережі</small></div>
-            <div class="acts" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+            <div class="acts">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <button type="button" id="chatMenuBtn" class="dots-btn" aria-label="Меню чату" aria-expanded="false" aria-controls="chatMenu"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>
             </div>
           </div>
           <div class="ch">
             <span class="day">Сьогодні</span>
-            <div class="m i">Привіт! Вже вдома?<span class="tm">19:40</span></div>
-            <div class="m o">Щойно зайшов. Як дорога?<span class="tm">19:41 ✓✓</span></div>
-            <div class="m i"><div class="med"><svg viewBox="0 0 192 90" aria-hidden="true"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d231a"/><stop offset="65%" stop-color="#194d38"/><stop offset="100%" stop-color="#3ff0a8"/></linearGradient></defs><rect width="192" height="90" fill="url(#sky)"/><circle cx="146" cy="24" r="10" fill="#e6fff4" opacity=".92"/><path d="M0 72 L42 42 L78 62 L126 30 L192 68 L192 90 L0 90 Z" fill="#091a13"/><path d="M0 78 L58 58 L108 74 L154 54 L192 75 L192 90 L0 90 Z" fill="#040d09"/></svg><span>▶ 0:38</span></div>Спокійно, ось вид із перевалу<span class="tm">19:42</span></div>
-            <div class="m o"><div class="q"><b>Anon</b>Спокійно, ось вид із перевалу</div>Вау, кадр супер! Зараз наберу<span class="tm">19:43 ✓✓</span></div>
+            <div class="m i">Привіт! Ти вже вдома?<span class="tm">19:40</span></div>
+            <div class="m o">Так, щойно зайшов. Як дорога?<span class="tm">19:41 ✓✓</span></div>
+            <div class="m i">Спокійно, доїхав без затримок<span class="tm">19:42</span></div>
+            <div class="m o"><div class="q"><b>Anon</b>Спокійно, доїхав без затримок</div>Добре, як буде час — набери або напиши сюди<span class="tm">19:43 ✓✓</span></div>
+            <div class="m i">Домовились, на зв’язку 👍<span class="tm">19:44</span></div>
           </div>
           <div class="bar"><div class="plus">+</div><div class="inp">Повідомлення</div><div class="snd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div></div>
+          <div class="cmenu-bg" id="chatMenuBg"></div>
+          <div class="cmenu" id="chatMenu" role="menu" aria-hidden="true">
+            <button type="button" role="menuitem">Перейменувати</button>
+            <button type="button" role="menuitem">Змінити фото</button>
+            <button type="button" role="menuitem">👤  Профіль</button>
+            <button type="button" role="menuitem">🔑  ID</button>
+            <button type="button" role="menuitem">🔒  Почати секретний чат</button>
+            <button type="button" role="menuitem">⏱  Повідомлення, що зникають: Вимкнено</button>
+            <button type="button" role="menuitem">📌  Закріпити</button>
+            <button type="button" role="menuitem">🔕  Вимкнути звук</button>
+            <button type="button" role="menuitem">🗄  В архів</button>
+          </div>
         </div></div>
       </div>
     </div>
@@ -423,7 +441,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   burger.addEventListener('click',function(){set(!b.classList.contains('open'))});
   veil.addEventListener('click',function(){set(false)});
   menu.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
-  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&b.classList.contains('open'))set(false)});
+  var dScr=d.getElementById('demoScr'),cBtn=d.getElementById('chatMenuBtn'),cBg=d.getElementById('chatMenuBg'),cMenu=d.getElementById('chatMenu');
+  function setCm(o){if(!dScr)return;dScr.classList.toggle('mopen',o);cBtn.setAttribute('aria-expanded',o);cMenu.setAttribute('aria-hidden',!o);}
+  if(cBtn){
+    cBtn.addEventListener('click',function(e){e.stopPropagation();setCm(!dScr.classList.contains('mopen'))});
+    cBg.addEventListener('click',function(){setCm(false)});
+    cMenu.addEventListener('click',function(){setCm(false)});
+  }
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'){if(b.classList.contains('open'))set(false);if(dScr&&dScr.classList.contains('mopen'))setCm(false)}});
   var bar=d.getElementById('bar'),up=d.getElementById('up'),t=false;
   function sc(){var y=h.scrollTop||b.scrollTop,m=h.scrollHeight-h.clientHeight;bar.style.transform='scaleX('+(m>0?y/m:0)+')';up.classList.toggle('on',y>700);t=false}
   addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(sc)}},{passive:true});sc();
