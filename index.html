@@ -46,11 +46,15 @@ mark{background:none;color:var(--m)}
 
 /* header + menu */
 header{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:#000;border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.12rem;letter-spacing:-.02em}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.12rem;letter-spacing:-.02em;flex:none}
 .brand svg{width:34px;height:34px}
 .brand small{font-weight:500;color:var(--mut);font-size:.8rem}
-#burger{width:48px;height:48px;border-radius:50%;border:1.5px solid #333;background:#000;cursor:pointer;display:grid;place-content:center;gap:6px;transition:border-color .2s,transform .15s}
+.dnav{display:flex;align-items:center;gap:4px}
+.dnav a{padding:8px 14px;border-radius:999px;text-decoration:none;font-size:.92rem;font-weight:650;color:#d6d6d6;white-space:nowrap;transition:background .18s,color .18s}
+.dnav a:hover{background:rgba(63,240,168,.12);color:#fff}
+.dnav a.active{background:rgba(63,240,168,.18);color:var(--m)}
+#burger{width:48px;height:48px;border-radius:50%;border:1.5px solid #333;background:#000;cursor:pointer;display:none;place-content:center;gap:6px;transition:border-color .2s,transform .15s}
 #burger:hover{border-color:var(--m)}#burger:active{transform:scale(.93)}
 #burger i{display:block;width:22px;height:2.5px;border-radius:2px;background:var(--w);transition:transform .3s,opacity .2s}
 body.open #burger i:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
@@ -149,8 +153,6 @@ section{padding:clamp(64px,9vw,120px) 0}
 .hero p{font-size:1.2rem;margin:26px 0 34px;color:#cfcfcf}
 .hero h1 mark{display:inline-block;animation:sl 1s .3s both cubic-bezier(.2,.8,.2,1)}
 @keyframes sl{from{opacity:0;transform:translateX(-24px)}}
-.hero::after{content:"";position:absolute;right:max(20px,6vw);bottom:70px;width:clamp(90px,16vw,200px);aspect-ratio:1;border:3px solid var(--m);border-radius:50%;animation:pulse 3.4s ease-out infinite}
-@keyframes pulse{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.5);opacity:0}}
 /* marquee */
 .mq{background:var(--m);color:#000;overflow:hidden;white-space:nowrap;padding:16px 0;font-weight:800;font-size:1.15rem;border-block:2px solid #000}
 .mq div{display:inline-block;animation:mq 26s linear infinite}
@@ -235,8 +237,8 @@ footer{background:#000;padding:44px 0 60px;color:var(--mut);font-size:.92rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 #up{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:50px;height:50px;border-radius:50%;border:2px solid #000;background:var(--m);color:#000;font-size:1.3rem;font-weight:800;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,transform .15s;z-index:30}
 #up.on{opacity:1;pointer-events:auto}#up:active{transform:scale(.92)}
-@media(max-width:860px){.proj,.cols{grid-template-columns:1fr}.cols>div:first-child{position:static}.hero{min-height:auto;padding-top:120px}.brand small{display:none}.hero::after{display:none}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.phone,.map .l,.map .c,.mq div,.hero::after,.hero h1 mark{animation:none}.m{animation:none;opacity:1;transform:none}}
+@media(max-width:860px){.proj,.cols{grid-template-columns:1fr}.cols>div:first-child{position:static}.hero{min-height:auto;padding-top:120px}.brand small{display:none}.dnav{display:none}#burger{display:grid}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.phone,.map .l,.map .c,.mq div,.hero h1 mark{animation:none}.m{animation:none;opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -244,16 +246,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <header>
   <div class="wrap">
     <a class="brand" href="#top" aria-label="MaksNortix company — на головну"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#3ff0a8"/><path d="M18 44V20l14 14 14-14v24" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg>MaksNortix<small>company</small></a>
+    <nav class="dnav" aria-label="Головна навігація">
+      <a href="#top" class="active">Головна</a>
+      <a href="#projects">Проєкти</a>
+      <a href="#about">Про компанію</a>
+      <a href="#country">Країна</a>
+      <a href="#faq">FAQ</a>
+    </nav>
     <button id="burger" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
   </div>
 </header>
 <div id="veil"></div>
-<nav id="menu" aria-label="Головне меню">
-  <a href="#faq">FAQ</a>
+<nav id="menu" aria-label="Мобільне меню">
+  <a href="#top">Головна</a>
   <a href="#projects">Проєкти компанії</a>
   <a href="#about">Відомості про компанію</a>
   <a href="#country">Країна заснування компанії</a>
-  <a href="#top">Головна</a>
+  <a href="#faq">FAQ</a>
   <p>© MaksNortix company</p>
 </nav>
 
@@ -433,31 +442,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <footer><div class="wrap"><span>© MaksNortix company</span><span>Україна</span></div></footer>
 <button id="up" type="button" aria-label="Нагору">↑</button>
 
-<script>
-(function(){
-  var d=document,b=d.body,h=d.documentElement;
-  var burger=d.getElementById('burger'),menu=d.getElementById('menu'),veil=d.getElementById('veil');
-  function set(o){b.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Закрити меню':'Відкрити меню');if(o)menu.querySelector('a').focus();else burger.focus({preventScroll:true});}
-  burger.addEventListener('click',function(){set(!b.classList.contains('open'))});
-  veil.addEventListener('click',function(){set(false)});
-  menu.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
-  var dScr=d.getElementById('demoScr'),cBtn=d.getElementById('chatMenuBtn'),cBg=d.getElementById('chatMenuBg'),cMenu=d.getElementById('chatMenu');
-  function setCm(o){if(!dScr)return;dScr.classList.toggle('mopen',o);cBtn.setAttribute('aria-expanded',o);cMenu.setAttribute('aria-hidden',!o);}
-  if(cBtn){
-    cBtn.addEventListener('click',function(e){e.stopPropagation();setCm(!dScr.classList.contains('mopen'))});
-    cBg.addEventListener('click',function(){setCm(false)});
-    cMenu.addEventListener('click',function(){setCm(false)});
-  }
-  d.addEventListener('keydown',function(e){if(e.key==='Escape'){if(b.classList.contains('open'))set(false);if(dScr&&dScr.classList.contains('mopen'))setCm(false)}});
-  var bar=d.getElementById('bar'),up=d.getElementById('up'),t=false;
-  function sc(){var y=h.scrollTop||b.scrollTop,m=h.scrollHeight-h.clientHeight;bar.style.transform='scaleX('+(m>0?y/m:0)+')';up.classList.toggle('on',y>700);t=false}
-  addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(sc)}},{passive:true});sc();
-  up.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'})});
-  var els=[].slice.call(d.querySelectorAll('.rv'));
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(e,i){e.style.transitionDelay=(i%3)*80+'ms';io.observe(e)});
-})();
-</script>
+<script src="/site.js" defer></script>
 </body>
 </html>
